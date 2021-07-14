@@ -1,3 +1,4 @@
+(function(){
 /*
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
@@ -68,3 +69,4 @@ Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
 // ?
+})()
