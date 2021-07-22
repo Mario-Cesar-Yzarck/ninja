@@ -34,19 +34,11 @@ console.log para cada formato.
 */
   console.log("\nNome convertido à partir de um slug:");
   var fullName = "mario-cesar-cunha-fialho";
-  function convertionString(string) {
-    let nameArray = string.split("-");
-    let newNameArray = [];
-    for (let i = 0; i < nameArray.length; i++) {
-      let strName =
-        nameArray[i].charAt(0).toUpperCase() + nameArray[i].slice(1);
-      newNameArray.push(strName);
-    }
-    console.log(string);
-    console.log(newNameArray.join(" "));
-  }
-  convertionString(fullName);
-
+  var nameArray = fullName.split("-").map(function (name) {
+    return name[0].toUpperCase() + name.slice(1);
+  });
+  console.log(fullName);
+  console.log(nameArray.join(" "));
   /*
 - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
 cada nome por vírgula. Entre o penúltimo e o último nome, o separador deve
@@ -66,39 +58,27 @@ O resultado final deve ficar mais ou menos assim:
     "Xico",
     "Mano",
   ];
-  function listFriends(array) {
-    array.sort();
-    let nameFriend = "";
-    for (let i = 0; i < array.length; i++) {
-      if (i === array.length - 2) {
-        nameFriend += array[i] + " e ";
-      } else {
-        if (i === array.length - 1) {
-          nameFriend += array[i];
-        } else {
-          nameFriend += array[i] + ", ";
-        }
-      }
-    }
-    return nameFriend;
-  }
-  console.log(listFriends(nameFriends));
+  console.log(
+    nameFriends.reduce(function (acc, item, index) {
+      let separator = index === nameFriends.length - 1 ? " e " : ", ";
+      return acc + separator + item;
+    }) + " são meus amigos."
+  );
+
   /*
 Usando o replace(), faça a string "Roberto" virar "Roberta".
 Mostre o resultado no console.
 */
   console.log('\nEra "Roberto", agora é:');
-  let str = "Roberto".split("").reverse().join("");
-  console.log(str);
-  let newStr = str;
-  //console.log("Roberto".replace("o", "a").replace("o", "a").replace("a", "o"));
+
+  console.log("Roberto".replace("to", "ta"));
 
   /*
 Mostre no console a parte "nando" da string "Fernando". Use o método que
 faz a busca do final para o início da string.
 */
   console.log("\nParte de uma string:");
-  // ?
+  console.log("Fernando".substring(8, 3));
 
   /*
 Declare uma variável chamada `myName`, que receba o seu primeiro nome,
@@ -110,5 +90,11 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
   console.log("\nNome com letras intercaladas entre caixa alta e baixa:");
-  // ?
+  var myName = "Yzarck";
+  var alteredName = "";
+  for (let i = 0; i < myName.length; i++) {
+    alteredName +=
+      i % 2 === 0 ? myName[i].toUpperCase() : myName[i].toLowerCase();
+  }
+  console.log(alteredName);
 })();
