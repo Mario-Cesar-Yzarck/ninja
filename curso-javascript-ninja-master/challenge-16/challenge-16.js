@@ -1,4 +1,5 @@
 (function () {
+  "use strict";
   /*
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
@@ -97,4 +98,6 @@ Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
       i % 2 === 0 ? myName[i].toUpperCase() : myName[i].toLowerCase();
   }
   console.log(alteredName);
+
+  console.log("Roberto".replace(/(o)(a)/g, "$2"));
 })();
