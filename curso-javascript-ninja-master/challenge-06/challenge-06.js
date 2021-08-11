@@ -12,9 +12,9 @@ Os elementos serão nomes de times do campeonato escolhido, e os nomes devem
 estar na ordem em que eles aparecem na tabela no momento da solução desse
 desafio.
 */
-// ?
+var teams = ["Vasco", "Desportiva", "Cruzeiro", "Ibis", "Chape"];
 
-console.log( 'Times que estão participando do campeonato:', teams );
+console.log("Times que estão participando do campeonato:", teams);
 
 /*
 Crie uma função chamada `showTeamPosition` com as seguintes características:
@@ -32,13 +32,20 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     - Se não houver time para a posição passada, deve retornar a mensagem:
     "Não temos a informação do time que está nessa posição."
 */
-// ?
+function showTeamPosition(number) {
+  return number >= 1 && number <= 5
+    ? `O time que está em ${number}º lugar é o ${teams[number - 1]}.`
+    : "Não temos a informação do time que está nessa posição.";
+}
 
 /*
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
-// ?
+console.log(showTeamPosition(0));
+console.log(showTeamPosition(2));
+console.log(showTeamPosition(4));
+console.log(showTeamPosition(1));
 
 /*
 Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
