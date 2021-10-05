@@ -21,7 +21,21 @@ as seguintes características:
   adicionados à idade original (age). Esse método deverá retornar o objeto
   que será instanciado.
 */
-// ?
+function Person(name, lastName, age) {
+  this.name = name;
+  this.lastName = lastName;
+  this.age = age;
+  this.getFullName = function getFullName() {
+    return `${this.name} ${this.lastName}`;
+  };
+  this.getAge = function getAge() {
+    return this.age;
+  };
+  this.addAge = function addAge() {
+    this.age += arguments[0];
+    return this;
+  };
+}
 
 /*
 Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -29,26 +43,40 @@ pessoas. As variáveis deverão ser o primeiro nome da pessoa. Passe os
 parâmetros corretamente para o construtor para criar as novas pessoas.
 Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
 */
-console.log( 'Novas pessoas criadas à partir de Person:' );
-// ?
+console.log("Novas pessoas criadas à partir de Person:");
+var mario = new Person("Mário", "Fialho", 35);
+var ariane = new Person("Ariane", "Machado", 32);
+var dante = new Person("Dante", "Cunha", 9);
+console.log(mario);
+console.log(ariane);
+console.log(dante);
 
 /*
 Mostre no console o nome completo de cada pessoa.
 */
-console.log( '\nNomes das pessoas:' );
-// ?
+console.log("\nNomes das pessoas:");
+console.log(mario.getFullName());
+console.log(ariane.getFullName());
+console.log(dante.getFullName());
 
 /*
 Mostre no console as idades de cada pessoa, com a frase:
 - "[NOME COMPLETO] tem [IDADE] anos."
 */
-console.log( '\nIdade das pessoas:' );
-// ?
+console.log("\nIdade das pessoas:");
+console.log(`${mario.getFullName()} tem ${mario.getAge()} anos.`);
+console.log(`${ariane.getFullName()} tem ${ariane.getAge()} anos.`);
+console.log(`${dante.getFullName()} tem ${dante.getAge()} anos.`);
 
 /*
 Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
 cada um. A frase deverá ser no formato:
 - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
 */
-console.log( '\nNova idade das pessoas:' );
-// ?
+console.log("\nNova idade das pessoas:");
+
+console.log(
+  `${mario.getFullName()} agora tem ${mario.addAge(10).getAge()} anos.`
+);
+console.log(`${ariane.getFullName()} tem ${ariane.addAge(30).getAge()} anos.`);
+console.log(`${dante.getFullName()} tem ${dante.addAge(20).getAge()} anos.`);
