@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <input
+          type="text"
+          data-js="input-cep"
+          placeholder="Digite um CEP válido"
+        />
+        <button data-js="btn-submit">Submit</button>
+      </div>
+    </header>
+    <br />
+    <body>
+      <div>
+        <input
+          type="text"
+          data-js="input-addres"
+          placeholder="Logradouro"
+          readonly
+        />
+        <input
+          type="text"
+          data-js="input-district"
+          placeholder="Bairro"
+          readonly
+        />
+        <input
+          type="text"
+          data-js="input-state"
+          placeholder="Estado"
+          readonly
+        />
+        <input type="text" data-js="input-city" placeholder="Cidade" readonly />
+        <input type="text" data-js="input-code" placeholder="CEP" readonly />
+      </div>
+    </body>
+    <footer>
+      <div>
+        <h3>Status da requisição:</h3>
+        <p data-js="status-mensage"></p>
+      </div>
+      <div>
+        <button>
+          <a
+            href="https://www.google.com.br/maps/place/18%C2%B022'19.2%22S+40%C2%B049'42.0%22W/@-18.3720047,-40.8288902,19z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d-18.3720056!4d-40.8283428"
+            target="blank"
+            >-18.372006, -40.828343</a
+          >
+        </button>
+      </div>
+    </footer>
+    <script src="challenge-28.js"></script>
+  </body>
+</html>
