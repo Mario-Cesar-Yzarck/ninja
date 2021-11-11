@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      tr,
+      td {
+        border: solid 2px black;
+        color: black;
+      }
+      #header {
+        text-align: center;
+      }
+      th,
+      td {
+        width: 20%;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MC Veículos</title>
+  </head>
+  <body>
+    <div id="header">
+      <h1 data-js="enterpriseName"></h1>
+      <p data-js="phone"></p>
+    </div>
+    <div id="form">
+      <p>Formulário para cadastro de veículos:</p>
+      <p>Imagem: <input type="url" data-js="link" placeholder="Link URL" /></p>
+      <p>
+        Marca/Modelo:
+        <input
+          type="text"
+          size="15"
+          data-js="marca/modelo"
+          placeholder="Marca/Modelo"
+        />
+      </p>
+      <p>
+        Ano do carro:
+        <input type="text" size="15" data-js="year" placeholder="Ano" />
+      </p>
+      <p>
+        Placa do carro:
+        <input type="text" size="15" data-js="Placa" placeholder="Placa" />
+      </p>
+      <p>
+        Cor do carro:
+        <input type="text" size="15" data-js="color" placeholder="Cor" />
+      </p>
+    </div>
+
+    <button data-js="btnCadastrar">Cadastrar</button>
+    <br />
+    <p>Veículos cadastrados:</p>
+    <table style="text-align: center">
+      <tr>
+        <th>Link URL</th>
+        <th>Marca/Modelo</th>
+        <th>Ano</th>
+        <th>Placa</th>
+        <th>Cor</th>
+      </tr>
+      <tbody data-js="tableCars"></tbody>
+    </table>
+    <div>
+      <p data-js="url"></p>
+      <p data-js="marca"></p>
+      <p data-js="ano"></p>
+      <p data-js="placa"></p>
+      <p data-js="cor"></p>
+    </div>
+    <script src="DOM.js"></script>
+    <script src="challenge-29.js"></script>
+  </body>
+</html>

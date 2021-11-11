@@ -1,5 +1,5 @@
-(function() {
-  'use strict';
+(function (win, doc, DOM) {
+  "use strict";
 
   /*
   Vamos estruturar um pequeno app utilizando módulos.
@@ -35,5 +35,79 @@
   E aqui nesse arquivo, faça a lógica para cadastrar os carros, em um módulo
   que será nomeado de "app".
   */
+  function app() {
+    const $tableCars = new DOM('[data-js="tableCars"]');
+    const $btnCadastrar = new DOM('[data-js="btnCadastrar"]');
+    const $name = new DOM('[data-js="enterpriseName"]');
+    const $phone = new DOM('[data-js="phone"]');
+    const $link = new DOM('[data-js="link"]');
+    const $tipo = new DOM('[data-js="marca/modelo"]');
+    const $year = new DOM('[data-js="year"]');
+    const $Placa = new DOM('[data-js="Placa"]');
+    const $color = new DOM('[data-js="color"]');
 
-})();
+    const ajax = new XMLHttpRequest();
+    ajax.open("GET", "company.json");
+    ajax.send();
+
+    eventReadyState();
+    startRegister();
+
+    function eventReadyState() {
+      ajax.addEventListener("readystatechange", () => {
+        if (isRequestOk()) {
+          let data = JSON.parse(ajax.responseText);
+          $name.get()[0].textContent = data.name;
+          $phone.get()[0].textContent = data.phone;
+        }
+      });
+    }
+
+    function isRequestOk() {
+      if (ajax.readyState === 4 && ajax.status === 200) {
+        return true;
+      }
+    }
+
+    function startRegister() {
+      $btnCadastrar.get()[0].addEventListener("click", (e) => {
+        if (inputsEmpty()) {
+          alert("Preencha todos os campos do formulário.");
+          return;
+        }
+        let html = "";
+        html += `<tr><td><a href="${
+          $link.get()[0].value
+        }" target="_blank">IMAGEM</a></td>`;
+        html += `<td>${$tipo.get()[0].value.toUpperCase()}</td>`;
+        html += `<td>${$year.get()[0].value.toUpperCase()}</td>`;
+        html += `<td>${$Placa.get()[0].value.toUpperCase()}</td>`;
+        html += `<td>${$color.get()[0].value.toUpperCase()}</td>`;
+        $tableCars.get()[0].innerHTML += html;
+        resetInputs();
+      });
+    }
+
+    function inputsEmpty() {
+      if (
+        $link.get()[0].value === "" ||
+        $tipo.get()[0].value === "" ||
+        $year.get()[0].value === "" ||
+        $Placa.get()[0].value === "" ||
+        $color.get()[0].value === ""
+      ) {
+        return true;
+      }
+    }
+
+    function resetInputs() {
+      $link.get()[0].value = "";
+      $tipo.get()[0].value = "";
+      $year.get()[0].value = "";
+      $Placa.get()[0].value = "";
+      $color.get()[0].value = "";
+    }
+  }
+
+  app();
+})(window, document, DOM);
